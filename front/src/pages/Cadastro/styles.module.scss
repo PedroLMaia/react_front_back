@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background: white;
+
+  .formContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    input {
+      margin-bottom: 20px;
+      padding: 5px 10px;
+      border-radius: 6px;
+      border-color: black;
+    }
+  }
+
+  button {
+    padding: 20px;
+    width: 10%;
+    align-self: center;
+  }
+}

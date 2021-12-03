@@ -1,0 +1,28 @@
+.container {
+  display: block;
+  align-items: center;
+  align-content: center;
+  text-align: center;
+
+  table {
+    font-family: Helvetica, sans-serif;
+    text-align: left;
+    border-spacing: 100px 0;
+    color: white;
+    display: inherit;
+    font-weight: bold;
+  }
+
+  th {
+    color: #919496;
+  }
+  td {
+    padding-bottom: 1.5em;
+  }
+
+  #dataAtual {
+    font-family: Helvetica, sans-serif;
+    text-align: center;
+    color: white;
+  }
+}

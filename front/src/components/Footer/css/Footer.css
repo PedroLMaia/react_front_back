@@ -1,0 +1,41 @@
+
+footer{
+    width: 100%;
+    display: block;
+    height: 100%;
+    padding-top: 100px;
+    width: auto;
+    background-color: black;
+  }
+
+table{
+    font-family: Helvetica, sans-serif;
+    text-align: left;
+    border-spacing: 100px 0;
+    color: white;
+    display: inherit;
+    font-weight: bold;
+}
+
+th{
+    color:#919496
+}
+td {
+    padding-bottom: 1.5em;
+  }
+
+#dataAtual{
+    font-family: Helvetica, sans-serif;
+    text-align: center;
+    color: white;
+    padding-bottom: 2rem;
+}
+
+body{
+    background-color: black;
+  }
+
+img#logo{
+    height: 40px;
+    margin-left: 5rem;
+  }

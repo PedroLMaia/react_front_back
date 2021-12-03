@@ -1,0 +1,53 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background: white;
+
+  .formContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    input {
+      margin-bottom: 20px;
+      padding: 5px 10px;
+      border-radius: 6px;
+      border-color: black;
+    }
+  }
+
+  .buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    button {
+      padding: 20px;
+      width: 10%;
+      align-self: center;
+
+      border-radius: 8px;
+      border: none;
+
+      cursor: pointer;
+
+      transition: 200ms filter;
+
+      &:first-child {
+        background-color: #18D860;
+      }
+
+      & + button {
+        margin-left: 10px;
+        background-color: #d7453c;
+        color: white;
+      }
+
+      &:hover {
+        filter: brightness(0.8);
+      }
+    }
+  }
+}

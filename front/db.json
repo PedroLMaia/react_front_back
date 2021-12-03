@@ -1,0 +1,341 @@
+{
+  "users": [
+    {
+      "nickname": "t1",
+      "email": "t@email.com",
+      "password": "123456",
+      "id": 1
+    },
+    {
+      "nickname": "leleo",
+      "email": "leo@gmail.com",
+      "password": "123",
+      "id": 2
+    },
+    {
+      "nickname": "Show 9",
+      "email": "show@email.com",
+      "password": "321",
+      "id": 3
+    }
+  ],
+  "plays": [
+    {
+      "name": "pedro",
+      "capa": "albumCovers/templatealbum3.jpg",
+      "userId": 1,
+      "songs": [
+        {
+          "id": 1,
+          "nome": "SICKO MODE",
+          "autor": "Travis Scott ft. Drake",
+          "arquivo": "../../assets/music/p1_m1.mp3"
+        },
+        {
+          "id": 2,
+          "nome": "Goosebumps",
+          "autor": "Travis Scott ft. Kendrick Lamar",
+          "arquivo": "../assets/music/p1_m2.mp3"
+        }
+      ],
+      "id": 1
+    },
+    {
+      "name": "s",
+      "capa": "albumCovers/templatealbum5.jpg",
+      "userId": 1,
+      "songs": [],
+      "id": 2
+    },
+    {
+      "name": "t",
+      "capa": "albumCovers/templatealbum5.jpg",
+      "userId": 1,
+      "songs": [],
+      "id": 3
+    },
+    {
+      "name": "t",
+      "capa": "albumCovers/templatealbum4.jpg",
+      "userId": 1,
+      "songs": [],
+      "id": 4
+    }
+  ],
+  "songs": [
+    {
+      "id": 1,
+      "nome": "SICKO MODE",
+      "autor": "Travis Scott ft. Drake",
+      "arquivo": "../../assets/music/p1_m1.mp3"
+    },
+    {
+      "id": 2,
+      "nome": "Goosebumps",
+      "autor": "Travis Scott ft. Kendrick Lamar",
+      "arquivo": "../assets/music/p1_m2.mp3"
+    },
+    {
+      "id": 3,
+      "nome": "HIGHEST IN THE ROOM",
+      "autor": "Travis Scott",
+      "arquivo": "../assets/music/p1_m3.mp3"
+    },
+    {
+      "id": 4,
+      "nome": "Riptide",
+      "autor": "Vance Joy",
+      "arquivo": "../assets/music/p2_m1.mp3"
+    },
+    {
+      "id": 5,
+      "nome": "Sweater Weather",
+      "autor": "The Neighbourhood",
+      "arquivo": "../assets/music/p2_m2.mp3"
+    },
+    {
+      "id": 6,
+      "nome": "Hey baby",
+      "autor": "The Neighbourhood",
+      "arquivo": "../assets/music/p2_m3.mp3"
+    },
+    {
+      "id": 7,
+      "nome": "Teen Romance",
+      "autor": "Lil Peep",
+      "arquivo": "../assets/music/p3_m1.mp3"
+    },
+    {
+      "id": 8,
+      "nome": "Life Goes On",
+      "autor": "Oliver Tree",
+      "arquivo": "../assets/music/p3_m2.mp3"
+    },
+    {
+      "id": 9,
+      "nome": "STAY",
+      "autor": "Kid LAROI, Justin Bieber",
+      "arquivo": "../assets/music/p3_m3.mp3"
+    },
+    {
+      "id": 10,
+      "nome": "Smells Like Teen Spirit",
+      "autor": "Nirvana",
+      "arquivo": "../assets/music/p4_m1.mp3"
+    },
+    {
+      "id": 11,
+      "nome": "Californication",
+      "autor": "Red Hot Chili Peppers",
+      "arquivo": "../assets/music/p4_m2.mp3"
+    },
+    {
+      "id": 12,
+      "nome": "Can't Stop",
+      "autor": "Red Hot Chili Peppers",
+      "arquivo": "../assets/music/p4_m3.mp3"
+    }
+  ],
+  "albums": [
+    {
+      "id": 1,
+      "nome": "test1",
+      "capa": "albumCovers/templatealbum0.jpg",
+      "musicas": [
+        {
+          "id": 1,
+          "nome": "SICKO MODE",
+          "autor": "Travis Scott ft. Drake",
+          "arquivo": "../../assets/music/p1_m1.mp3"
+        },
+        {
+          "id": 2,
+          "nome": "Goosebumps",
+          "autor": "Travis Scott ft. Kendrick Lamar",
+          "arquivo": "../assets/music/p1_m2.mp3"
+        },
+        {
+          "id": 3,
+          "nome": "HIGHEST IN THE ROOM",
+          "autor": "Travis Scott",
+          "arquivo": "../assets/music/p1_m3.mp3"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "nome": "test2",
+      "capa": "albumCovers/templatealbum1.jpg",
+      "musicas": [
+        {
+          "id": 1,
+          "nome": "Riptide",
+          "autor": "Vance Joy",
+          "arquivo": "../assets/music/p2_m1.mp3"
+        },
+        {
+          "id": 2,
+          "nome": "Sweater Weather",
+          "autor": "The Neighbourhood",
+          "arquivo": "../assets/music/p2_m2.mp3"
+        },
+        {
+          "id": 3,
+          "nome": "Void",
+          "autor": "The Neighbourhood",
+          "arquivo": "../assets/music/p2_m3.mp3"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "nome": "test3",
+      "capa": "albumCovers/templatealbum2.jpg",
+      "musicas": [
+        {
+          "id": 1,
+          "nome": "Teen Romance",
+          "autor": "Lil Peep",
+          "arquivo": "../assets/music/p3_m1.mp3"
+        },
+        {
+          "id": 2,
+          "nome": "Life Goes On",
+          "autor": "Oliver Tree",
+          "arquivo": "../assets/music/p3_m2.mp3"
+        },
+        {
+          "id": 3,
+          "nome": "STAY",
+          "autor": "Kid LAROI, Justin Bieber",
+          "arquivo": "../assets/music/p3_m3.mp3"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "nome": "test4",
+      "capa": "albumCovers/templatealbum3.jpg",
+      "musicas": [
+        {
+          "id": 1,
+          "nome": "Smells Like Teen Spirit",
+          "autor": "Nirvana",
+          "arquivo": "../assets/music/p4_m1.mp3"
+        },
+        {
+          "id": 2,
+          "nome": "Californication",
+          "autor": "Red Hot Chili Peppers",
+          "arquivo": "../assets/music/p4_m2.mp3"
+        },
+        {
+          "id": 3,
+          "nome": "Can't Stop",
+          "autor": "Red Hot Chili Peppers",
+          "arquivo": "../assets/music/p4_m3.mp3"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "nome": "test5",
+      "capa": "albumCovers/templatealbum4.jpg",
+      "musicas": [
+        {
+          "id": 1,
+          "nome": "Smells Like Teen Spirit",
+          "autor": "Nirvana",
+          "arquivo": "../assets/music/p4_m1.mp3"
+        },
+        {
+          "id": 2,
+          "nome": "Californication",
+          "autor": "Red Hot Chili Peppers",
+          "arquivo": "../assets/music/p4_m2.mp3"
+        },
+        {
+          "id": 3,
+          "nome": "Can't Stop",
+          "autor": "Red Hot Chili Peppers",
+          "arquivo": "../assets/music/p4_m3.mp3"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "nome": "test6",
+      "capa": "albumCovers/templatealbum5.jpg",
+      "musicas": [
+        {
+          "id": 1,
+          "nome": "Smells Like Teen Spirit",
+          "autor": "Nirvana",
+          "arquivo": "../assets/music/p4_m1.mp3"
+        },
+        {
+          "id": 2,
+          "nome": "Californication",
+          "autor": "Red Hot Chili Peppers",
+          "arquivo": "../assets/music/p4_m2.mp3"
+        },
+        {
+          "id": 3,
+          "nome": "Can't Stop",
+          "autor": "Red Hot Chili Peppers",
+          "arquivo": "../assets/music/p4_m3.mp3"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "nome": "test7",
+      "capa": "albumCovers/templatealbum6.jpg",
+      "musicas": [
+        {
+          "id": 1,
+          "nome": "Smells Like Teen Spirit",
+          "autor": "Nirvana",
+          "arquivo": "../assets/music/p4_m1.mp3"
+        },
+        {
+          "id": 2,
+          "nome": "Californication",
+          "autor": "Red Hot Chili Peppers",
+          "arquivo": "../assets/music/p4_m2.mp3"
+        },
+        {
+          "id": 3,
+          "nome": "Can't Stop",
+          "autor": "Red Hot Chili Peppers",
+          "arquivo": "../assets/music/p4_m3.mp3"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "nome": "test8",
+      "capa": "albumCovers/templatealbum7.jpg",
+      "musicas": [
+        {
+          "id": 1,
+          "nome": "Smells Like Teen Spirit",
+          "autor": "Nirvana",
+          "arquivo": "../assets/music/p4_m1.mp3"
+        },
+        {
+          "id": 2,
+          "nome": "Californication",
+          "autor": "Red Hot Chili Peppers",
+          "arquivo": "../assets/music/p4_m2.mp3"
+        },
+        {
+          "id": 3,
+          "nome": "Can't Stop",
+          "autor": "Red Hot Chili Peppers",
+          "arquivo": "../assets/music/p4_m3.mp3"
+        }
+      ]
+    }
+  ]
+}
