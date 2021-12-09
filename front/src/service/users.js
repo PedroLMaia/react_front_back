@@ -3,6 +3,7 @@ const axios = require('axios');
 const getUserPlaylistsById = async (userId) => {
     try{
         const playlists = await axios.get(`${process.env.REACT_APP_BASE_URL}/playlists/user/${userId}`)
+        console.log(playlists)
         return playlists
     }catch(error){
         console.error("Erro ao requirir todas as músicas.")

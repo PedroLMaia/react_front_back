@@ -39,8 +39,9 @@ const updateSongs = async (playlistId, songsArray) => {
             capa: playlistData.capa,
             songs: songsArray
         }
+        console.log(requestBody)
 
-        const response = await axios.put(`${process.env.REACT_APP_BASE_URL}/playslists/${playlistId}`,requestBody,{
+        const response = await axios.put(`${process.env.REACT_APP_BASE_URL}/playlists/${playlistId}`,requestBody,{
             headers: {
               'Content-Type': 'application/json'
             }

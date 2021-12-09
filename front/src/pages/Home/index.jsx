@@ -27,7 +27,7 @@ export function Home(props) {
 
   const res = totalAlbums.map( (totalAlbums) =>{
     return(
-      <Link  to = { `/WebPlayer/${totalAlbums.id}` } > 
+      <Link  to = { `/WebPlayer/${totalAlbums._id}` } > 
       <img src= {totalAlbums.capa}     /> </Link>
     )
   }  )

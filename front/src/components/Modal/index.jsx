@@ -48,7 +48,6 @@ export function AlertDialog({ addedSongs, song, onPress }) {
           </Button>
         </DialogActions>
       </Dialog>
-        <button onClick={onPress} >CLIQUE PARA TESTAR</button>
     </>
   );
 }
