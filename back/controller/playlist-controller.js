@@ -9,8 +9,8 @@ const getAllPlaylists = (req, res, next) => {
 }
 
 //NOVO METODO - Retorna todo os usuários cadastrados -to do
-const getAllPlaylists = (req, res, next) => {
-    
+const getAllPlaylists2 = (req, res, next) => {
+    return "a"
 }
 //Retorna uma playlist cadastrada por ID 
 const getPlaylistById = (req, res, next) => {
@@ -19,7 +19,7 @@ const getPlaylistById = (req, res, next) => {
 }
 
 //NOVO METODO - Retorna uma playlist cadastrada por ID  -to do
-const getPlaylistById = (req, res, next) => {
+const getPlaylistById2 = (req, res, next) => {
 }
 
 //Atualiza uma playlist By Id
@@ -90,10 +90,9 @@ const _validateNewPlaylistReqBody = (reqBody) => {
 //NOVO METODO PARA RETONAR AS PLAYLISTS POR ID
 const getPlaylistByUserId = async (req, res, next) => {
     if(req.params.id){
-        const conn = await getConnection()
+        const db = req.app.locals.db
         try {
-            const database = conn.db('clonespotify')
-            const playlists = database.collection('playlists')
+            const playlists = db.collection('playlists')
 
             const query = { userId: +req.params.id }
 
