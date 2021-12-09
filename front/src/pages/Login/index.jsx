@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import { useHistory } from 'react-router';
 import styles from './styles.module.scss';
+import { EventEmitter } from '../../event/event';
 
 
 export function Login() {
@@ -22,6 +23,15 @@ export function Login() {
                 
                 localStorage.setItem('@db/nickname', user.nickname)
                 localStorage.setItem('@db/user_id', user._id)
+                console.log("before")
+                try{
+                    EventEmitter.dispatch('userLoggedIn', true)
+                }catch(error){
+                    console.log("ERRO:")
+                    console.log(error)
+                }
+               
+                console.log("after")
                 history.push('/home')
             }).catch(err => {
             // msg de erro
@@ -41,7 +51,7 @@ export function Login() {
                     <input
                         type="email" 
                         required
-                        placeholder="escreva seu e-mail"
+                        placeholder="insira seu e-mail"
                         onChange={(v) => setEmail(v.target.value)}
                     />
                 </section>
@@ -50,7 +60,7 @@ export function Login() {
                     <input
                         type="password" 
                         required
-                        placeholder="escreva sua senha:"
+                        placeholder="insira sua senha"
                         onChange={(v) => setPassword(v.target.value)}
                     />
                 </section>

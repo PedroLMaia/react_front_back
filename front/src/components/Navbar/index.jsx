@@ -4,17 +4,30 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import logoSpotify from "../../assets/spotify-logo.png"
 import styles from "./styles.module.scss"
+import { EventEmitter } from '../../event/event'
 
 export function Navbar() {
   const [nickname, setNickname] = useState("")
   useEffect(async () => {
-    let user = JSON.parse(localStorage.getItem("@db/nickname"))
+      console.log("MUDOOOOOOUUUUUUUUU")
+      let user = localStorage.getItem("@db/nickname")
       if(user != null){
-        setNickname(user.nickname)
+        setNickname(user)
       }else{
           setNickname("")
       }
+
+
    },[])
+
+   EventEmitter.subscribe('userLoggedIn', (teste) => {
+    let user = localStorage.getItem("@db/nickname")
+    console.log("KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK")
+    // useEffect()
+    setNickname(user)
+
+   })
+   
 
   return (
     <div className={styles.container}>
