@@ -1,6 +1,7 @@
 const dbFile = require("../db")
 const dbService = require("../service/db-service")
 const { getDb } = require('../mongoConnection')
+var ObjectId = require('mongodb').ObjectId;
 path = require('path')
 
 //Retorna todo os usuários cadastrados
@@ -41,17 +42,15 @@ const getUserById2 = (req, res, next) => {
 
 
 //Atualiza um usuário cadastro por ID
-const updateUserById = (req, res, next) => {
+const updateUserById = async (req, res, next) => {
     if(req.params.id && _validateNewUserBody(req.body)){
-        for(let user of dbFile.users){
-            if(user.id === parseInt(req.params.id)){
-                req.body.id = user.id
-                userIndex = dbFile.users.indexOf(user)
-                dbFile.users[userIndex] = req.body
-                dbService.updateDbFileArchive(JSON.stringify(dbFile))
-                res.status(204).json({message: "Usuário atualizado com sucesso!"})
-                break
-            }
+        const db = req.app.locals.db
+        const users =  db.collection('users')
+        let newvalues = { $set: {nickname: req.body.nickname, email: req.body.email, password: req.body.password } };
+        const user = await users.updateOne({_id: new ObjectId(req.params.id)}, newvalues)
+        if(user){
+            res.status(204).json(user)
+            return
         }
         res.status(404).json({message: "Usuário não encontrado."})
     }else{
@@ -89,7 +88,6 @@ const deleteUserById2 = (req, res, next) => {
 }
 
 const _validateNewUserBody = (reqBody) => {
-    console.log(reqBody)
     if(!reqBody.nickname || !reqBody.email || !reqBody.password){
         return false
     }
