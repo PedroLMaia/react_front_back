@@ -1,10 +1,26 @@
 const dbFile = require('../db')
 const dbService = require("../service/db-service")
+var ObjectId = require('mongodb').ObjectId;
 const { getConnection } = require('../mongoConnection')
 
 
 //Retorna todo os usuários cadastrados 
-const getAllPlaylists = (req, res, next) => {
+const getAllPlaylists = async (req, res, next) => {
+    console.log("GET ALL PLAYLISTS")
+    const db = req.app.locals.db
+    const playlists =  db.collection('playlists')
+    if(req.query.id){
+        let playlist = await playlists.find({_id: new ObjectId(req.query.id)}).toArray()
+        if(playlist){
+            res.status(200).send(playlist)
+            return
+        }else{
+            res.status(400).send({message: 'Nenhuma playlist encontrada.'})
+        }
+    }else{        
+        let resultado = await playlists.find({}).toArray();
+        res.status(200).send(resultado)
+    }
     res.status(200).json(dbFile.playlists)
 }
 
@@ -23,17 +39,26 @@ const getPlaylistById2 = (req, res, next) => {
 }
 
 //Atualiza uma playlist By Id
-const updatePlyalistById = (req, res, next) => {
+const updatePlyalistById = async (req, res, next) => {
+    console.log("CHEHUEEEEEI")
+    console.log(req.body.id)
+    console.log("-----------------")
     if(req.params.id){
-        for(let playlist of dbFile.playlists){
-            if(playlist.id === parseInt(req.params.id)){
-                updateIndex = dbFile.playlists.indexOf(playlist)
-                dbFile.playlists[updateIndex] = {id: dbFile.playlists[updateIndex].id, ...req.body}
-                dbService.updateDbFileArchive(JSON.stringify(dbFile))
-                res.status(204).json({message: "Playlist atualizado com sucesso!"})
-                break
-            }
-        }
+        const db = req.app.locals.db
+        const playlists =  db.collection('playlists')
+        let playlist = await playlists.find().toArray()
+        var newvalues = { $set: {songs: req.body.songs } };
+        const list = await playlists.updateOne({_id: new ObjectId(req.body.id)}, newvalues)
+        res.status(204).json({message: "Playlist atualizado com sucesso!"})
+        
+        // for(let playlist of dbFile.playlists){
+        //     if(playlist.id === parseInt(req.params.id)){
+        //         updateIndex = dbFile.playlists.indexOf(playlist)
+        //         dbFile.playlists[updateIndex] = {id: dbFile.playlists[updateIndex].id, ...req.body}
+        //         dbService.updateDbFileArchive(JSON.stringify(dbFile))
+        //         break
+        //     }
+        // }
     }
 }
 
