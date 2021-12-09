@@ -6,19 +6,29 @@ import { getUserPlaylistsById } from "../../service/users";
 
 export function Home(props) {
 
-  // const [user, setUser] = useState(JSON.parse(localStorage.getItem('@db/nickname')));
+  const [user, setUser] = useState({});
   const [totalAlbums, setTotalAlbums] = useState([]);
   const history = useHistory();
 
-  const user = "";
+  // const user = "";
 
   useEffect(() => {
+    console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+    let teste = localStorage.getItem('@db/nickname')
+    console.log(teste)
+    console.log("--------------------------")
+    setUser({nickname: localStorage.getItem('@db/nickname').replace("\"",""), id: localStorage.getItem('@db/user_id')})
+    console.log(user)
+    console.log("FIM")
     const fetchData = async () => {
-      const userID = JSON.parse(localStorage.getItem('@db/user_id'))
+      const userID = localStorage.getItem('@db/user_id')
       if (userID == null) {
         history.push("/");
         return;
       }
+      
+      console.log("ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZzz")
+      console.log(userID)
       const { data } = await getUserPlaylistsById(userID)
       setTotalAlbums(data)
     }

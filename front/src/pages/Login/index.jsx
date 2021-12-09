@@ -21,7 +21,7 @@ export function Login() {
                 const { data: { user } } = res;
                 
                 localStorage.setItem('@db/nickname', user.nickname)
-                localStorage.setItem('@db/user_id', user.id)
+                localStorage.setItem('@db/user_id', user._id)
                 history.push('/home')
             }).catch(err => {
             // msg de erro

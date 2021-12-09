@@ -24,6 +24,7 @@ export function CreatePlaylist() {
     const [currentSong, setCurrentSong] = useState("");
     const [playlistName, setPlaylistName] = useState("")
     const [user, setUser] = useState("")
+    const [userId, setUserId] = useState("")
     const history = useHistory()
 
     const handleChange = event => {
@@ -32,10 +33,11 @@ export function CreatePlaylist() {
     };
     useEffect(async () => {
       let userLocalStorage = localStorage.getItem('@db/nickname') 
+      setUserId(localStorage.getItem('@db/user_id'))
       if(userLocalStorage == null ){
         history.push('/')
       }else{
-        setUser(JSON.parse(userLocalStorage))
+        setUser(userLocalStorage)
       }
       console.log("ON useEffect")
         setSongs(await getSongsByName(musicaBuscada))
@@ -77,12 +79,14 @@ export function CreatePlaylist() {
     }
 
     const handleSubmit = async (event) => {
+      console.log("ANTES DE ENVIAR")
+      console.log(event.target.value)
       let playlistSongs = songs
       playlistSongs = playlistSongs.filter(_checkIfExists)
       console.log("BEFORE: " + JSON.stringify(songs))
       console.log("AFTER: " +  playlistSongs)
 
-      let userId = user.id
+      // let userId = user.id
       createPlaylist(playlistName, userId, playlistSongs)
 
       

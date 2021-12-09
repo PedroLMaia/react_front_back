@@ -98,19 +98,17 @@ const _validateNewUserBody = (reqBody) => {
 
 //NOVO CRIAR USUARIO
 const newUser = async (req, res, next) => {
-    const conn = await getConnection()
+    const db = req.app.locals.db
+    const users =  db.collection('users')
     try {
         if(_validateNewUserBody(req.body)){
             const { nickname, email, password } = req.body
+            let user = await users.insertOne({ nickname, email, password })
 
-            const database = conn.db('clonespotify')
-            const users = database.collection('users')
-            await users.insertOne({ nickname, email, password })
-            res.status(201).json({message: "Usuário criado com sucesso!"})
+            res.status(201).send({nickname: nickname, id: user['insertedId'].valueOf()})
         }
     } catch (error) {
-    } finally {
-        conn.close()
+        console.log(error)
     }
     res.end()
 };
@@ -126,12 +124,16 @@ const login = async (req, res) => {
         console.log("XXXXXXXXXXXXX")
         
         const users =  db.collection('users')
-        let resultado = await users.find({}).toArray();
-        console.log(resultado)
-        console.log("YYYYYYYYYYYYYYY")
+        // let resultado = await users.find({}).toArray();
+        // console.log(resultado)
+        // console.log("YYYYYYYYYYYYYYY")
         const query = { email }
         console.log(query)
         let user = await users.findOne(query)
+        console.log(user)
+        let userId = user['_id']
+        console.log(typeof userId)
+        // console.log({id: user['_id'].valueOf(),user: user })
 
         if (!user){
             res.status(404).end()
@@ -141,7 +143,7 @@ const login = async (req, res) => {
             res.status(401).end()
         }
         
-        return res.json({ user })
+        return res.json({id: user['_id'].valueOf(),user: user })
     } catch (error) {
         console.log(error)
     }

@@ -23,8 +23,9 @@ export function Cadastro() {
               
         })
             .then( (res) => {
-
-                localStorage.setItem('@db/nickname',  JSON.stringify(res.data))
+                // localStorage.setItem('@db/user', JSON.stringify({id: }))
+                localStorage.setItem('@db/user_id',  res.data.id)
+                localStorage.setItem('@db/nickname',  res.data.nickname)
                 history.push('/home')
             })
     }

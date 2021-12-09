@@ -4,7 +4,7 @@ var ObjectId = require('mongodb').ObjectId;
 const { getConnection } = require('../mongoConnection')
 
 
-//Retorna todo os usuários cadastrados 
+// NOVO Retorna todo os usuários cadastrados 
 const getAllPlaylists = async (req, res, next) => {
     console.log("GET ALL PLAYLISTS")
     const db = req.app.locals.db
@@ -24,10 +24,6 @@ const getAllPlaylists = async (req, res, next) => {
     res.status(200).json(dbFile.playlists)
 }
 
-//NOVO METODO - Retorna todo os usuários cadastrados -to do
-const getAllPlaylists2 = (req, res, next) => {
-    return "a"
-}
 //Retorna uma playlist cadastrada por ID 
 const getPlaylistById = (req, res, next) => {
     console.log("HHHHHHHHHHHHHHH")
@@ -38,7 +34,7 @@ const getPlaylistById = (req, res, next) => {
 const getPlaylistById2 = (req, res, next) => {
 }
 
-//Atualiza uma playlist By Id
+//NOVO Atualiza uma playlist By Id
 const updatePlyalistById = async (req, res, next) => {
     console.log("CHEHUEEEEEI")
     console.log(req.body.id)
@@ -62,10 +58,6 @@ const updatePlyalistById = async (req, res, next) => {
     }
 }
 
-//NOVO METODO - Atualiza uma playlist By Id  -to do
-const updatePlyalistById2 = (req, res, next) => {
-    
-}
 
 //Deleta uma playlist cadastrada por ID
 const deletePlaylistById = (req, res, next) => {
@@ -87,22 +79,24 @@ const deletePlaylistById2 = (req, res, next) => {
     
 }
 
-//Cria uma playlist
+//NOVO Cria uma playlist
 const newPlaylist = (req, res, next) => {
+    console.log("CHEHUEEEI")
+    console.log(req.body)
     if(_validateNewPlaylistReqBody(req.body)){
-        lastPlaylistId = dbFile.playlists.at(-1).id + 1
-        dbFile.playlists.push({id: lastPlaylistId, ...req.body})
-        dbService.updateDbFileArchive(JSON.stringify(dbFile))
+        const db = req.app.locals.db
+        const playlists = db.collection('playlists')
+        playlists.insertOne(req.body)
+        
+        // lastPlaylistId = dbFile.playlists.at(-1).id + 1
+        // dbFile.playlists.push({id: lastPlaylistId, ...req.body})
+        // dbService.updateDbFileArchive(JSON.stringify(dbFile))
         res.status(201).json({message: "Playlist criada com sucesso!"})
     }else{
         res.status(400).json({message: "Preencha os campos obrigatórios corretamente."});
     }
 };
 
-//NOVO METODO PARA CRIAR UMA PLAYLIST  -to do
-const newPlaylist2 = (req, res, next) => {
-    
-};
 
 
 const _validateNewPlaylistReqBody = (reqBody) => {
@@ -119,9 +113,10 @@ const getPlaylistByUserId = async (req, res, next) => {
         try {
             const playlists = db.collection('playlists')
 
-            const query = { userId: +req.params.id }
+            const query = { userId: req.params.id }
 
             const list = await playlists.find(query).toArray()
+            // console.log()
             
             res.json(list)
         }catch (error) {}

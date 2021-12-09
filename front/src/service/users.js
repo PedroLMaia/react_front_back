@@ -2,6 +2,8 @@ const axios = require('axios');
 
 const getUserPlaylistsById = async (userId) => {
     try{
+        console.log("USEEEEEEEEEEEER ID: ")
+        console.log(userId)
         const playlists = await axios.get(`${process.env.REACT_APP_BASE_URL}/playlists/user/${userId}`)
         console.log(playlists)
         return playlists
