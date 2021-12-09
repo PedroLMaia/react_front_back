@@ -1,15 +1,21 @@
-const dbFile = require('../db')
-
-const getSongs = (req, res, next) =>{
+const getSongs = async (req, res, next) =>{
+    const db = req.app.locals.db
+    
     if(req.query.name){
-       songsByName = dbFile.songs.filter((song) => {
+        
+        const songs =  db.collection('songs')
+        let allSongs = await songs.find({}).toArray()
+
+       songsByName = allSongs.filter((song) => {
            if(song.nome.toLowerCase().includes(req.query.name.toLowerCase())){
                return song
            }
        })
        res.status(200).send(songsByName)
     }else{
-        res.status(200).send(dbFile.songs)
+        const songs =  db.collection('songs')
+        let allSongs = await songs.find({}).toArray()
+        res.status(200).send(allSongs)
     }
 }
 

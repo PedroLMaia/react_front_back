@@ -10,6 +10,7 @@ const getAllPlaylists = (req, res, next) => {
 
 //Retorna uma playlist cadastrada por ID
 const getPlaylistById = (req, res, next) => {
+    console.log("HHHHHHHHHHHHHHH")
     res.json({message: "Usuário por ID."})
 }
 

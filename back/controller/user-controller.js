@@ -1,6 +1,6 @@
 const dbFile = require("../db")
 const dbService = require("../service/db-service")
-const { getConnection } = require('../mongoConnection')
+const { getDb } = require('../mongoConnection')
 path = require('path')
 
 //Retorna todo os usuários cadastrados
@@ -96,15 +96,20 @@ const newUser = async (req, res, next) => {
 
 //NOVO LOGIN DE USUARIO
 const login = async (req, res) => {
-
-    const conn = await getConnection()
-
+    console.log("DDDDDDDDD")
+    // console.log(req.app.locals.db.collection('users'))
     try {
         const {email, password} = req.body
-        const database = conn.db('clonespotify')
-        const users = database.collection('users')
+        const db = req.app.locals.db
+        console.log("XXXXXXXXXXXXX")
+        
+        const users =  db.collection('users')
+        let resultado = await users.find({}).toArray();
+        console.log(resultado)
+        console.log("YYYYYYYYYYYYYYY")
         const query = { email }
-        const user = await users.findOne(query)
+        console.log(query)
+        let user = await users.findOne(query)
 
         if (!user){
             res.status(404).end()
@@ -116,9 +121,7 @@ const login = async (req, res) => {
         
         return res.json({ user })
     } catch (error) {
-
-    } finally {
-        conn.close()
+        console.log(error)
     }
     res.end()
 }
