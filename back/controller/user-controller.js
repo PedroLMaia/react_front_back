@@ -12,6 +12,13 @@ const getAllUSers = (req, res, next) => {
     res.json(response)
 }
 
+//NOVO Retorna todo os usuários cadastrados (em teste)
+const getAllUSers2 = async (req, res, next) => {
+    const users =  db.collection('users')
+    let allUsers = await users.find({}).toArray()
+    res.status(200).send(allUsers)
+}
+
 //Retorna um usuário cadastrado por ID
 const getUserById = (req, res, next) => {
     dbContent = dbFile

@@ -1,3 +1,4 @@
+//NOVO GET SONGS
 const getSongs = async (req, res, next) =>{
     const db = req.app.locals.db
     

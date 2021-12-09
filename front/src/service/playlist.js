@@ -5,7 +5,7 @@ const axios = require('axios');
 //songs - array of songs
 const createPlaylist = async (playlistName, userId, songs) => {
     try{
-        const response = await axios.post(`${process.env.REACT_APP_BASE_URL}/plays`, {
+        const response = await axios.post(`${process.env.REACT_APP_BASE_URL}/playlists`, {
             name: playlistName,
             capa: "albumCovers/templatealbum" + (Math.floor(Math.random() * 6)) +".jpg",
             userId: userId,
@@ -19,7 +19,7 @@ const createPlaylist = async (playlistName, userId, songs) => {
 
 const getPlaylistById = async (playlistId) => {
     try{
-        const playlist = await axios.get(`${process.env.REACT_APP_BASE_URL}/plays?id=${playlistId}&b=l`)
+        const playlist = await axios.get(`${process.env.REACT_APP_BASE_URL}/playlists?id=${playlistId}&b=l`)
         let jaja =  await playlist.data[0]
         return jaja
     }catch(error){
@@ -40,7 +40,7 @@ const updateSongs = async (playlistId, songsArray) => {
             songs: songsArray
         }
 
-        const response = await axios.put(`${process.env.REACT_APP_BASE_URL}/plays/${playlistId}`,requestBody,{
+        const response = await axios.put(`${process.env.REACT_APP_BASE_URL}/playslists/${playlistId}`,requestBody,{
             headers: {
               'Content-Type': 'application/json'
             }
