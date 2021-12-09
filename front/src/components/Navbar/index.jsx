@@ -22,9 +22,12 @@ export function Navbar() {
 
    EventEmitter.subscribe('userLoggedIn', (teste) => {
     let user = localStorage.getItem("@db/nickname")
-    console.log("KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK")
     // useEffect()
     setNickname(user)
+
+   })
+   EventEmitter.subscribe('userLogout', (teste) => {
+    setNickname("")
 
    })
    

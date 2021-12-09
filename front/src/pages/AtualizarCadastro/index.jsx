@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
 import styles from './styles.module.scss';
+import { EventEmitter } from '../../event/event';
 
 
 export function AtualizarCadastro() {
@@ -31,16 +32,22 @@ export function AtualizarCadastro() {
             .then((res) => {
                 localStorage.clear()
                 history.push('/')
+                EventEmitter.dispatch('userLogout', true)
+            }).catch((err) => {
+                console.log("Erro ao alterar usuário.")
+                console.log(err)
             })
     }
 
     function handleLogout(e) {
         e.preventDefault();
+        EventEmitter.dispatch('userLogout', true)
         localStorage.clear();
         history.push("/")
     }
 
-    const user = JSON.parse(localStorage.getItem('@db/nickname'))
+    const user = localStorage.getItem('@db/nickname')
+    const userId = localStorage.getItem('@db/user_id')
 
     useEffect(() => {
         if (!user) history.push("/");
@@ -48,7 +55,7 @@ export function AtualizarCadastro() {
         setNickname(user.nickname)
         setEmail(user.email)
         setPassword(user.password)
-        setId(user.id)
+        setId(userId)
     }, [])
 
     return (
@@ -87,7 +94,7 @@ export function AtualizarCadastro() {
             </form>
 
             <section className={styles.buttons}>
-                <button onClick={handleCadastro} >Cadastrar</button>
+                <button onClick={handleCadastro} >Alterar</button>
                 <button onClick={handleLogout} >Logout</button>
             </section>
         </div>
