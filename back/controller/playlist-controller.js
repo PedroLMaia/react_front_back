@@ -3,15 +3,23 @@ const dbService = require("../service/db-service")
 const { getConnection } = require('../mongoConnection')
 
 
-//Retorna todo os usuários cadastrados
+//Retorna todo os usuários cadastrados 
 const getAllPlaylists = (req, res, next) => {
     res.status(200).json(dbFile.playlists)
 }
 
-//Retorna uma playlist cadastrada por ID
+//NOVO METODO - Retorna todo os usuários cadastrados -to do
+const getAllPlaylists = (req, res, next) => {
+    
+}
+//Retorna uma playlist cadastrada por ID 
 const getPlaylistById = (req, res, next) => {
     console.log("HHHHHHHHHHHHHHH")
     res.json({message: "Usuário por ID."})
+}
+
+//NOVO METODO - Retorna uma playlist cadastrada por ID  -to do
+const getPlaylistById = (req, res, next) => {
 }
 
 //Atualiza uma playlist By Id
@@ -29,6 +37,11 @@ const updatePlyalistById = (req, res, next) => {
     }
 }
 
+//NOVO METODO - Atualiza uma playlist By Id  -to do
+const updatePlyalistById2 = (req, res, next) => {
+    
+}
+
 //Deleta uma playlist cadastrada por ID
 const deletePlaylistById = (req, res, next) => {
     if(req.params.id){
@@ -44,6 +57,10 @@ const deletePlaylistById = (req, res, next) => {
     }
 }
 
+//NOVO METODO - Deleta uma playlist cadastrada por ID  -to do
+const deletePlaylistById2 = (req, res, next) => {
+    
+}
 
 //Cria uma playlist
 const newPlaylist = (req, res, next) => {
@@ -55,6 +72,11 @@ const newPlaylist = (req, res, next) => {
     }else{
         res.status(400).json({message: "Preencha os campos obrigatórios corretamente."});
     }
+};
+
+//NOVO METODO PARA CRIAR UMA PLAYLIST  -to do
+const newPlaylist2 = (req, res, next) => {
+    
 };
 
 

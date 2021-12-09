@@ -12,7 +12,7 @@ const getAllUSers = (req, res, next) => {
     res.json(response)
 }
 
-//NOVO Retorna todo os usuários cadastrados (em teste)
+//NOVO Retorna todo os usuários cadastrados  -to do
 const getAllUSers2 = async (req, res, next) => {
     const users =  db.collection('users')
     let allUsers = await users.find({}).toArray()
@@ -34,6 +34,10 @@ const getUserById = (req, res, next) => {
     res.status(400).json({message: "Informe um id válido."})
 }
 
+//NOVO - Retorna um usuário cadastrado por ID - to do
+const getUserById2 = (req, res, next) => {
+    
+}
 
 
 //Atualiza um usuário cadastro por ID
@@ -58,6 +62,12 @@ const updateUserById = (req, res, next) => {
     
 }
 
+//NOVO - Atualiza um usuário cadastro por ID - to do 
+const updateUserById2 = (req, res, next) => {
+     
+}
+
+
 //Deleta um usuário cadastrado por ID
 const deleteUserById = (req, res, next) => {
     if(req.params.id){
@@ -71,6 +81,11 @@ const deleteUserById = (req, res, next) => {
             }
         }
     }
+}
+
+//NOVO - Deleta um usuário cadastrado por ID - to do 
+const deleteUserById2 = (req, res, next) => {
+    
 }
 
 const _validateNewUserBody = (reqBody) => {
